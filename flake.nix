@@ -18,8 +18,8 @@
       };
 
       packages = rec {
-        nix-osu-lazer-bin-aarch64 = pkgs.callPackage ./pkgs/nix-osu-lazer-bin-aarch64 { };
-        default = nix-osu-lazer-bin-aarch64;
+        nix-osu-lazer-aarch64 = pkgs.callPackage ./pkgs/nix-osu-lazer-aarch64 { };
+        default = nix-osu-lazer-aarch64;
       };
     in
     {
@@ -27,22 +27,22 @@
 
       apps.${system}.default = {
         type = "app";
-        program = "${packages.nix-osu-lazer-bin-aarch64}/bin/osu!";
+        program = "${packages.nix-osu-lazer-aarch64}/bin/osu!";
       };
 
-      homeModules.nix-osu-lazer-bin-aarch64 =
+      homeModules.nix-osu-lazer-aarch64 =
         { lib, pkgs, ... }:
         {
-          imports = [ ./modules/home-manager/nix-osu-lazer-bin-aarch64.nix ];
-          programs.nix-osu-lazer-bin-aarch64.package = lib.mkDefault (
-            self.packages.${pkgs.stdenv.hostPlatform.system}.nix-osu-lazer-bin-aarch64
+          imports = [ ./modules/home-manager/nix-osu-lazer-aarch64.nix ];
+          programs.nix-osu-lazer-aarch64.package = lib.mkDefault (
+            self.packages.${pkgs.stdenv.hostPlatform.system}.nix-osu-lazer-aarch64
           );
         };
-      homeModules.default = self.homeModules.nix-osu-lazer-bin-aarch64;
+      homeModules.default = self.homeModules.nix-osu-lazer-aarch64;
 
       overlays.default = final: _prev: {
         inherit (self.packages.${final.stdenv.hostPlatform.system} or packages)
-          nix-osu-lazer-bin-aarch64
+          nix-osu-lazer-aarch64
           ;
       };
     };

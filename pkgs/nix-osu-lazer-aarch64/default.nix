@@ -22,7 +22,7 @@
 }:
 
 buildDotnetModule rec {
-  pname = "nix-osu-lazer-bin-aarch64";
+  pname = "nix-osu-lazer-aarch64";
   version = "2026.804.2";
 
   src = fetchFromGitHub {
@@ -98,7 +98,7 @@ buildDotnetModule rec {
 
   meta = {
     description = "Rhythm is just a *click* away (native aarch64-linux osu!lazer)";
-    homepage = "https://github.com/gaavin/nix-osu-lazer-bin-aarch64";
+    homepage = "https://github.com/gaavin/nix-osu-lazer-aarch64";
     license = with lib.licenses; [
       mit
       cc-by-nc-40
