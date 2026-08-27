@@ -13,9 +13,6 @@
 
 </div>
 
-> [!WARNING]
-> **This project was primarily written by an LLM (AI). Review the code yourself before running it. Use at your own risk.**
-
 nixpkgs `osu-lazer-bin` is `x86_64-linux` and `aarch64-darwin` only. The official Linux [AppImage](https://github.com/ppy/osu/releases) is x86_64; there is no ARM64 Linux binary to wrap.
 
 This flake builds [ppy/osu](https://github.com/ppy/osu) natively for `aarch64-linux` (same approach as nixpkgs `osu-lazer`) using the framework's `linux-arm64` native libs (BASS, FFmpeg, veldrid-spirv). It is **not** an emulator wrapper.
