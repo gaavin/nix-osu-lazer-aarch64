@@ -23,20 +23,20 @@
 
 buildDotnetModule rec {
   pname = "nix-osu-lazer-aarch64";
-  version = "2026.804.2";
+  version = "2026.921.0";
 
   src = fetchFromGitHub {
     owner = "ppy";
     repo = "osu";
     tag = "${version}-lazer";
-    hash = "sha256-1cUR3Z3TCNfnkyNkxlb+rmsFkYZ0WMBBRQwvRqoXUfw=";
+    hash = "sha256-/1h23G6ag9VuApG4TXocozWiT+F7bG5WE0m1E7XLoT0=";
   };
 
   projectFile = "osu.Desktop/osu.Desktop.csproj";
   nugetDeps = ./deps.json;
 
-  dotnet-sdk = dotnetCorePackages.sdk_8_0;
-  dotnet-runtime = dotnetCorePackages.runtime_8_0;
+  dotnet-sdk = dotnetCorePackages.sdk_10_0;
+  dotnet-runtime = dotnetCorePackages.runtime_10_0;
 
   nativeBuildInputs = [
     copyDesktopItems
